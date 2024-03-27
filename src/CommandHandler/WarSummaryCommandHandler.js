@@ -1,11 +1,13 @@
 import { CommandInteraction, Colors } from "discord.js";
 import helldivers2 from "helldivers2-api";
+import numFormat from "format-num";
 
 import DiscordCommandHandler from "../lib/DiscordCommandHandler.js";
+import Helldivers2CacheRepository from "../Repository/Helldivers2CacheRepository.js";
 
-export default class WarSummaryCommandHandler extends DiscordCommandHandler{
+export default class WarSummaryCommandHandler extends DiscordCommandHandler {
     constructor(client) {
-        super(client, 'war_summary', 'Shows a summary of the current War.');
+        super(client, 'war_statistics', 'Shows statistics about the current War.');
     }
 
     /**
@@ -13,7 +15,7 @@ export default class WarSummaryCommandHandler extends DiscordCommandHandler{
      * @returns Promise<void>
      */
     async handle(interaction) {
-        const currentWarId = await helldivers2.getCurrentWarId();
+        const currentWarId = await Helldivers2CacheRepository.getCurrentWarId();
         const warSummary = await helldivers2.getWarSummary(currentWarId);
 
         await interaction.reply({
@@ -24,18 +26,17 @@ export default class WarSummaryCommandHandler extends DiscordCommandHandler{
                 fields: [
                     {
                         name: 'Galaxy Statistics',
-                        value: `Won missions: **${warSummary.galaxyStats.wonMissions}**\n`
-                            + `Failed missions: **${warSummary.galaxyStats.lostMissions}**\n`
-                            + `Mission success rate: **${warSummary.galaxyStats.missionSuccessRate}%**`
+                        value: `Won missions: **${numFormat(warSummary.galaxyStats.wonMissions)}**\n`
+                            + `Failed missions: **${numFormat(warSummary.galaxyStats.lostMissions)}**\n`
+                            + `Mission success rate: **${numFormat(warSummary.galaxyStats.missionSuccessRate)}%**`
                     }, {
                         name: 'Killcount',
-                        value: `Terminids killed: **${warSummary.galaxyStats.terminidKills}**\n`
-                            + `Automatons killed: **${warSummary.galaxyStats.automatonKills}**\n`
+                        value: `Terminids killed: **${numFormat(warSummary.galaxyStats.terminidKills)}**\n`
+                            + `Automatons killed: **${numFormat(warSummary.galaxyStats.automatonKills)}**\n`
                     }, {
                         name: 'Combat statistics',
-                        value: `Bullets fired: **${warSummary.galaxyStats.firedBullets}**\n`
-                            + `Total playtime: **${warSummary.galaxyStats.totalPlayTime}**\n`
-                            + `Accuracy: **~${warSummary.galaxyStats.accuracy}%**`
+                        value: `Bullets fired: **${numFormat(warSummary.galaxyStats.firedBullets)}**\n`
+                            + `Total playtime: **${(warSummary.galaxyStats.totalPlayTime / 60 / 60 / 24 / 7 / 52).toFixed(2) } years**`
                     }
                 ]
             }]
