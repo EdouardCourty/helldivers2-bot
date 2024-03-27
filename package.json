@@ -22,7 +22,9 @@
   "homepage": "https://github.com/EdouardCourty/discord-server-bridge#readme",
   "dependencies": {
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "helldivers2-api": "^1.0.9",
+    "moment": "^2.30.1"
   },
   "devDependencies": {
     "eslint": "^8.57.0"

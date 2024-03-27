@@ -10,7 +10,7 @@ dotenv.config();
 Logger.info('Starting up');
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
+    intents: [GatewayIntentBits.Guilds]
 });
 
 await EventLoader.loadEventHandlers(client);

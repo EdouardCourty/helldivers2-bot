@@ -12,6 +12,7 @@ export default class {
     }
 
     static error(message) {
+        console.log(message)
         this.#log('error', message);
     }
 }
