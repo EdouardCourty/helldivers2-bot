@@ -25,18 +25,18 @@ export default class WarSummaryCommandHandler extends DiscordCommandHandler {
                 timestamp: new Date(),
                 fields: [
                     {
-                        name: 'Galaxy Statistics',
+                        name: '🪐 Galaxy Statistics',
                         value: `Won missions: **${numFormat(warSummary.galaxyStats.wonMissions)}**\n`
                             + `Failed missions: **${numFormat(warSummary.galaxyStats.lostMissions)}**\n`
                             + `Mission success rate: **${numFormat(warSummary.galaxyStats.missionSuccessRate)}%**`
                     }, {
-                        name: 'Killcount',
+                        name: '💥 Killcount',
                         value: `Terminids killed: **${numFormat(warSummary.galaxyStats.terminidKills)}**\n`
                             + `Automatons killed: **${numFormat(warSummary.galaxyStats.automatonKills)}**\n`
                     }, {
-                        name: 'Combat statistics',
+                        name: '⚔️ Combat statistics',
                         value: `Bullets fired: **${numFormat(warSummary.galaxyStats.firedBullets)}**\n`
-                            + `Total playtime: **${(warSummary.galaxyStats.totalPlayTime / 60 / 60 / 24 / 7 / 52).toFixed(2) } years**`
+                            + `Total playtime: **${numFormat((warSummary.galaxyStats.totalPlayTime / 60 / 60 / 24 / 7 / 52).toFixed(2)) } years**`
                     }
                 ]
             }]

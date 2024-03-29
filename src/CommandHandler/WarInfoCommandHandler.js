@@ -20,7 +20,7 @@ export default class WarInfoCommandHandler extends DiscordCommandHandler {
 
         await interaction.reply({
             embeds: [{
-                title: `Informations about War ${currentWarId}`,
+                title: `📢 Informations - War ${currentWarId}`,
                 description: 'Use /war_statistics to see more data about this war!',
                 color: Colors.Red,
                 timestamp: new Date(),

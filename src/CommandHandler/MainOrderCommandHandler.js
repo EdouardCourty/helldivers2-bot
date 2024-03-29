@@ -20,7 +20,7 @@ export default class MainOrderCommandHandler extends DiscordCommandHandler{
 
         await interaction.reply({
             embeds: [{
-                title: `Main orders - War ${currentWarId}`,
+                title: `📋 Main orders - War ${currentWarId}`,
                 description: 'The main orders are goals every Helldivers must keep in mind to save Super-Earth.',
                 color: Colors.Purple,
                 timestamp: new Date(),
@@ -32,7 +32,8 @@ export default class MainOrderCommandHandler extends DiscordCommandHandler{
                         name: `Assignment ${index + 1}: ${assignment.settings.description}`,
                         value: `Description: **${assignment.settings.brief}**\n`
                             + `Progress: **${assignment.progress}%**\n`
-                            + `Finishes on **${finishDate}**`
+                            + `Finishes on **${finishDate}**\n`
+                            + `Reward: **${assignment.settings.reward.amount} ${assignment.settings.reward.stringType}**`
                     }
                 })
             }]

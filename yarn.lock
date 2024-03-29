@@ -577,9 +577,9 @@ has-flag@^4.0.0:
   integrity sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
 
 helldivers2-api@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/helldivers2-api/-/helldivers2-api-1.0.9.tgz#e409eb81c3f080b73a47d3a75303295b5272ad66"
-  integrity sha512-GPJ8KJZvHugbPUaJWXOV2mV0sxmpxOuLmVFs+PHiyMz0fDWZI72kSnohlREI7r4YGsvFQCVmTQd7m8GhmzhNRw==
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/helldivers2-api/-/helldivers2-api-1.0.13.tgz#36488b3ebebf085c087483a70c59da8cbc75adea"
+  integrity sha512-l87H6ID2D3r8qf/T98jITR1GUsJeR17W5CcqJez6Wa1u5IEdhrsL5oen8MZaIb9/zl32M4XnZ2Hu/4r1jFCilQ==
   dependencies:
     axios "^1.6.8"
 
