@@ -9,7 +9,7 @@ export default class extends DiscordCommandHandler {
 
     /**
      * @param {CommandInteraction} interaction
-     * @returns {Promise<void>}
+     * @returns Promise<void>
      */
     async handle(interaction) {
         await interaction.reply({

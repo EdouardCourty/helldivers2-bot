@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
     apps: [{
-        name: 'discord-bot',
+        name: 'helldivers2-bot',
         script: './app.js',
         instances: 1,
         watch: false,
@@ -17,9 +17,9 @@ module.exports = {
             'host': process.env.PM2_DEPLOY_IP,
             'port': process.env.PM2_DEPLOY_PORT,
             'ref': 'origin/master',
-            'repo': 'git@github.com:EdouardCourty/discord-bot',
-            'path': '/var/www/discord-bot',
-            'post-deploy': 'yarn install && cp /var/www/discord-bot/.env /var/www/discord-bot/current/.env && pm2 startOrRestart ecosystem.config.cjs --env production'
+            'repo': 'git@github.com:EdouardCourty/helldivers2-bot',
+            'path': '/var/www/helldivers2-bot',
+            'post-deploy': 'yarn install && cp /var/www/helldivers2-bot/.env /var/www/helldivers2-bot/current/.env && pm2 startOrRestart ecosystem.config.cjs --env production'
         }
     }
 }
