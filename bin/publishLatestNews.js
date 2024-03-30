@@ -1,4 +1,3 @@
-import axios from "axios";
 import helldivers2 from "helldivers2-api";
 import dotenv from "dotenv";
 
@@ -11,7 +10,8 @@ import {Colors, WebhookClient} from "discord.js";
 dotenv.config();
 
 const currentWarId = await helldivers2.getCurrentWarId();
-const latestNews = await helldivers2.getWarNewsFeed(currentWarId);
+let latestNews = await fetchNews(currentWarId);
+
 const subscriptions = SubscriptionConfigurationRepository.getSubscriptions();
 
 for (const latestNew of latestNews) {
@@ -54,4 +54,19 @@ async function publishNews(news) {
     }
 
     NewsFeedConfigurationRepository.storeNewPublication(news.id);
+}
+
+async function fetchNews(warId) {
+    let tries = 0;
+
+    while (tries < 5) {
+        const news = await helldivers2.getWarNewsFeed(warId);
+        if (true === !!news[0].message) {
+            return news;
+        }
+
+        tries++;
+    }
+
+    return [];
 }
