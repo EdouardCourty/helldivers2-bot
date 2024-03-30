@@ -1,4 +1,4 @@
-import { Colors, CommandInteraction } from "discord.js";
+import {Colors, CommandInteraction, PermissionFlagsBits} from "discord.js";
 
 import DiscordCommandHandler from "../lib/DiscordCommandHandler.js";
 import SubscriptionConfigurationRepository from "../Repository/SubscriptionConfigurationRepository.js";
