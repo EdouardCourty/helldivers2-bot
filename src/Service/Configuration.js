@@ -6,6 +6,9 @@ export default class Configuration {
 
     static #configuration = null;
 
+    /**
+     * @returns {{"publishedNews": array, guilds: object, subscriptions: []}}
+     */
     static getConfiguration() {
         if (this.#configuration === null) {
             this.createIfNotExists();
@@ -14,6 +17,12 @@ export default class Configuration {
         }
 
         return this.#configuration;
+    }
+
+    static updateConfiguration(config) {
+        this.#configuration = config;
+
+        fs.writeFileSync(this.CONFIG_PATH, JSON.stringify(config, null, 2));
     }
 
     static createIfNotExists() {
