@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 import helldivers2 from "helldivers2-api";
 import dotenv from "dotenv";
 
