@@ -24,6 +24,25 @@ export default class SubscriptionConfigurationRepository {
         Configuration.updateConfiguration(configuration);
     }
 
+    static removeSubscriptionByGuildId(guildId) {
+        let config = Configuration.getConfiguration();
+        let found = null;
+
+        config['subscriptions'] = config['subscriptions'].filter((subscriptionData) => {
+            if (subscriptionData['guildId'] === guildId) {
+                found = subscriptionData;
+
+                return false;
+            }
+
+            return true;
+        });
+
+        Configuration.updateConfiguration(config);
+
+        return found;
+    }
+
     static removeSubscription(channelId) {
         let config = Configuration.getConfiguration();
         let found = null;
